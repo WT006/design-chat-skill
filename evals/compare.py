@@ -100,7 +100,7 @@ def render(out, cases, results, filename='comparison.html'):
     lookup = {(r['variant'], r['case']): r for r in results}
     parts = ['<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">',
              '<meta name="viewport" content="width=device-width,initial-scale=1">',
-             '<title>Design Chat · 对话对比</title>', f'<style>{STYLE}</style>',
+             '<title>Talk to Plan · 对话对比</title>', f'<style>{STYLE}</style>',
              '</head><body><main>']
     for case in cases:
         parts.append(f'<section><h1>{escape(case["title"])}</h1>'

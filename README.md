@@ -1,16 +1,16 @@
-# Design Chat
+# Talk to Plan
 
 **English** | [中文](README.zh-CN.md)
 
 An AI skill for human-led design discussions. Explore ideas together and turn approved decisions into clear design docs.
 
-## Why Design Chat?
+## Why Talk to Plan?
 
 - **Tired of endless follow-up questions?** You want to explore an idea, but the conversation turns into a questionnaire about every detail.
 - **Still explaining, but AI has already decided?** A tentative thought becomes a requirement before you've agreed to it.
 - **Had a useful discussion, then had to piece it all together?** Your decisions are scattered across messages, with no clear design doc to continue from.
 
-Design Chat gives you a shared starting point, room to think out loud, and a document that grows as you make decisions.
+Talk to Plan gives you a shared starting point, room to think out loud, and a document that grows as you make decisions.
 
 ## How it works
 
@@ -25,7 +25,7 @@ Skip topics, revisit ideas, or leave details for later. “That makes sense” i
 Requires Node.js and npm. Choose your agent when prompted:
 
 ```bash
-npx skills add WT006/design-chat-skill --skill design-chat
+npx skills add WT006/talk-to-plan-skill --skill talk-to-plan
 ```
 
 ## Use
@@ -33,7 +33,7 @@ npx skills add WT006/design-chat-skill --skill design-chat
 In Codex:
 
 ```text
-$design-chat Sketch the overall architecture and suggest a few topics.
+$talk-to-plan Sketch the overall architecture and suggest a few topics.
 Let's discuss them together and document decisions once I approve them.
 ```
 
@@ -41,7 +41,7 @@ Continue naturally—no need to repeat the skill name. Developed in Codex; the s
 
 ## Example conversation
 
-> **You:** $design-chat I want to build a bookmarking tool. Give me the big picture first.
+> **You:** $talk-to-plan I want to build a bookmarking tool. Give me the big picture first.
 >
 > **AI:** We can discuss saving content, organizing and finding it, and syncing across devices. Here's how those parts connect…
 >

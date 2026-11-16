@@ -8,6 +8,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import signal
 import subprocess
@@ -116,14 +117,18 @@ def call_codex(prompt, work, prefix, timeout, model=None, schema=None):
 
 
 def execute_case(label, skill, case, out, timeout, model=None):
+    # Older snapshots keep their original name when used as a comparison baseline.
+    skill_name = re.search(r'^name:\s*([a-z0-9-]+)\s*$',
+                           skill['SKILL.md'].split('---', 2)[1], re.MULTILINE).group(1)
+    skill_path = f'.agents/skills/{skill_name}'
     target = out / label / case['id']
     target.mkdir(parents=True)
     history, rows, user_runs = [], [], []
     termination = 'turn_limit'
-    with tempfile.TemporaryDirectory(prefix='design-chat-assistant-') as tmp, \
-            tempfile.TemporaryDirectory(prefix='design-chat-user-') as user_tmp:
+    with tempfile.TemporaryDirectory(prefix='talk-to-plan-assistant-') as tmp, \
+            tempfile.TemporaryDirectory(prefix='talk-to-plan-user-') as user_tmp:
         work, user_work = Path(tmp), Path(user_tmp)
-        write_files(work / '.agents/skills/design-chat', skill)
+        write_files(work / skill_path, skill)
         write_files(work, case['files'])
         for number in range(1, case['max_turns'] + 1):
             done = False
@@ -149,7 +154,7 @@ def execute_case(label, skill, case, out, timeout, model=None):
             history.append({'role': 'user', 'content': user})
             before = visible_files(work)
             prompt = (
-                '使用 $design-chat，读取当前目录 .agents/skills/design-chat/SKILL.md，'
+                f'使用 ${skill_name}，读取当前目录 {skill_path}/SKILL.md，'
                 '按其中的规则继续下面的设计讨论。只使用这个副本，不加载其他位置的同名 skill。\n'
                 '当前目录就是这个项目；如需设计文档，使用 DESIGN.md。'
                 '无需联网或读取当前目录之外的文件；不要修改 skill 文件。\n'

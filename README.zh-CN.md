@@ -1,4 +1,4 @@
-# Design Chat
+# Talk to Plan
 
 [English](README.md) | **中文**
 
@@ -10,7 +10,7 @@
 - **你是否还没想好，AI 就替你定了方案？** 随口提出的想法，还没认可就被写成了正式需求。
 - **你是否聊了很久，还得自己翻记录整理？** 决策散落在消息里，下次继续时又要重新交代。
 
-Design Chat 帮你先看全局，留出边问边想的空间，再随着你逐块拍板，把共识整理成可继续维护的文档。
+Talk to Plan 帮你先看全局，留出边问边想的空间，再随着你逐块拍板，把共识整理成可继续维护的文档。
 
 ## 怎么使用
 
@@ -25,7 +25,7 @@ Design Chat 帮你先看全局，留出边问边想的空间，再随着你逐�
 需要 Node.js 和 npm，运行后选择你的 AI 工具：
 
 ```bash
-npx skills add WT006/design-chat-skill --skill design-chat
+npx skills add WT006/talk-to-plan-skill --skill talk-to-plan
 ```
 
 ## 开始讨论
@@ -33,7 +33,7 @@ npx skills add WT006/design-chat-skill --skill design-chat
 在 Codex 中输入：
 
 ```text
-$design-chat 先给我整体架构和几个值得讨论的模块。
+$talk-to-plan 先给我整体架构和几个值得讨论的模块。
 我们逐块探讨，我明确拍板后再把结论整理到文档中。
 ```
 
@@ -41,7 +41,7 @@ $design-chat 先给我整体架构和几个值得讨论的模块。
 
 ## 简单举例
 
-> **你：** $design-chat 我想做一个收藏工具，先帮我看看整体怎么设计。
+> **你：** $talk-to-plan 我想做一个收藏工具，先帮我看看整体怎么设计。
 >
 > **AI：** 可以先讨论内容收集、分类检索和多端同步这几块，它们之间的关系是……
 >
